@@ -2,9 +2,19 @@ import cv2
 import numpy as np
 from random import randint
 import os
-print("file exists?", os.path.exists('futebol.mp4'))
 
-cap = cv2.VideoCapture("futebol.mp4")
+currently_path = os.getcwd()
+
+project_path = "michelmourao\Computer vision\Tracker"
+folder_path = os.path.join(currently_path, project_path)
+#print(folder_path)
+archive = "futebol.mp4"
+full_path = os.path.join(folder_path, archive)
+#print(full_path)
+
+print("file exists?", os.path.exists(full_path))
+
+cap = cv2.VideoCapture(full_path)
 
 while cap.isOpened():
     ok, frame = cap.read()
