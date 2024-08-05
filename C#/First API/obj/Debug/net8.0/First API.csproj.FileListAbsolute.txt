@@ -1,0 +1,15 @@
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\bin\Debug\net8.0\First API.exe
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\bin\Debug\net8.0\First API.deps.json
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\bin\Debug\net8.0\First API.runtimeconfig.json
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\bin\Debug\net8.0\First API.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\bin\Debug\net8.0\First API.pdb
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\First API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\First API.AssemblyInfoInputs.cache
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\First API.AssemblyInfo.cs
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\First API.csproj.CoreCompileInputs.cache
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\First API.sourcelink.json
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\First API.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\refint\First API.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\First API.pdb
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\First API.genruntimeconfig.cache
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\First API\obj\Debug\net8.0\ref\First API.dll

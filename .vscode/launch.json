@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "C#: First API",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\C#\\First API\\First API.csproj",
+            "launchConfigurationId": "TargetFramework=;First API"
+        },
+        {
+            "name": "C#: HelloWorld",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\C#\\HelloWorld\\HelloWorld.csproj",
+            "launchConfigurationId": "TargetFramework=;HelloWorld"
+        }
+    ]
+}

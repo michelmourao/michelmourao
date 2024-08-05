@@ -1,0 +1,4 @@
+1. Abra o terminal na pasta onde será criado o projeto
+2. Execute: dotnet new console -n NomeDoProjeto
+3. Navegue para dentro da nova pasta com nome do projeto
+4. Execute: dotnet build
