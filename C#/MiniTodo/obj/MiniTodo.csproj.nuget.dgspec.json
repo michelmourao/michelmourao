@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/HelloWorld.csproj": {}
+    "/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/MiniTodo.csproj": {}
   },
   "projects": {
-    "/Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/HelloWorld.csproj": {
+    "/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/MiniTodo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/HelloWorld.csproj",
-        "projectName": "HelloWorld",
-        "projectPath": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/HelloWorld.csproj",
+        "projectUniqueName": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/MiniTodo.csproj",
+        "projectName": "MiniTodo",
+        "projectPath": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/MiniTodo.csproj",
         "packagesPath": "/Users/michelmourao/.nuget/packages/",
-        "outputPath": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/obj/",
+        "outputPath": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/michelmourao/.nuget/NuGet/NuGet.Config"
@@ -20,7 +20,6 @@
           "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,6 +42,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqLite": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,6 +70,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
