@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\HelloWorld.csproj": {}
+    "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\FirstAPI\\FirstAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\HelloWorld.csproj": {
+    "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\FirstAPI\\FirstAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\HelloWorld.csproj",
-        "projectName": "HelloWorld",
-        "projectPath": "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\HelloWorld.csproj",
+        "projectUniqueName": "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\FirstAPI\\FirstAPI.csproj",
+        "projectName": "FirstAPI",
+        "projectPath": "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\FirstAPI\\FirstAPI.csproj",
         "packagesPath": "C:\\Users\\michel.mourao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\obj\\",
+        "outputPath": "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\FirstAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -25,12 +25,8 @@
           "net8.0"
         ],
         "sources": {
-<<<<<<< HEAD
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-=======
-          "/usr/local/share/dotnet/library-packs": {},
->>>>>>> 073467e9a490561cc5c7b769001f1d9157728e91
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,6 +49,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -65,6 +71,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
