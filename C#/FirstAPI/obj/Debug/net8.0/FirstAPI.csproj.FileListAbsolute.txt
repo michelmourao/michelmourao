@@ -32,3 +32,11 @@ C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\obj\Debug\net8.0\ref
 C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\obj\Debug\net8.0\FirstAPI.pdb
 C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\obj\Debug\net8.0\FirstAPI.genruntimeconfig.cache
 C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\obj\Debug\net8.0\ref\FirstAPI.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\michel.mourao\Desktop\DEV\michelmourao\C#\FirstAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
