@@ -25,12 +25,8 @@
           "net8.0"
         ],
         "sources": {
-<<<<<<< HEAD
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-=======
-          "/usr/local/share/dotnet/library-packs": {},
->>>>>>> 073467e9a490561cc5c7b769001f1d9157728e91
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
