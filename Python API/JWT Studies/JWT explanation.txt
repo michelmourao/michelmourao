@@ -1,0 +1,37 @@
+HEADER
+Headers é o cabeçalho do token onde passamos basicamente duas informações: o alg que informa qual algoritmo é usado para criar a assinatura e o typ que indica qual o tipo de token.
+{
+    "alg": "HS256",
+    "typ": "JWT"
+}
+
+eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.
+
+
+PAYLOAD
+É onde os dados são armazenados. Pode conter informações como o identificador do usuário, permissões, expiração do token, etc.
+
+{
+    "email": "nome@alura.com.br",
+    "password": "HuEKW489!j445*"
+}
+
+Como forma de ilustrar o uso do payload, usamos as informações de email e senha do usuário, mas o ideal é que você evite utilizar informações sensíveis. Usar senhas no payload do JWT é inseguro, pois os JWTs são frequentemente decodificados e lidos por clientes. Senhas expostas podem comprometer a segurança, já que os JWTs são assinados, mas não criptografados, permitindo acesso não autorizado a informações sensíveis.
+
+É mais seguro armazenar apenas identificadores no JWT e manter as senhas em um local seguro no servidor.
+
+eyJhdWQiOlsiZ2F0ZXdheSIsImlkZW50aXR5IiwiYWRtaW4iLCJib2FyZHMiLCJwbGF0YWZvcm0iLCJhcG9udGFtZW50b3MiLCJkZW1hbmRhcyIsInByb3RoZXVzIiwiZXZlbnQtc3RvcmUiXSwic3ViIjoiZDdiN2IyOWYtODg4Mi00Y2I1LWJlMjctZjNkODBmOWJjZTEyIiwiZW1haWwiOiJtaWNoZWwubW91cmFvQHBpbGFvcHJvZmVzc2lvbmFsLmNvbSIsImp0aSI6IjU0OWJhNmQ1LWU5NmYtNDRiOS04MTUzLWM5ZDUxNDc1NDk0YiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJtaWNoZWwubW91cmFvIiwiTm9tZSI6Ik1JQ0hFTCBFRFNPTiBFU1RFVkVTIE1PVVLDg08iLCJJZCI6ImQ3YjdiMjlmLTg4ODItNGNiNS1iZTI3LWYzZDgwZjliY2UxMiIsIkZpbGlhbCI6IntcIklkXCI6XCIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDBcIixcIlVzZXJJZFwiOlwiZDdiN2IyOWYtODg4Mi00Y2I1LWJlMjctZjNkODBmOWJjZTEyXCIsXCJFbnRpZGFkZUlkXCI6MSxcIklkRW50aWRhZGVcIjpcIjBjM2M3ZGUzLWU3YzQtNDA4Yy1hMmZhLTZmZWZlMWY1M2I0NVwiLFwiRG9taW5pb1wiOlwiMDAwMFwiLFwiRW50aWRhZGVBdGl2YVwiOnRydWV9Iiwicm9sZSI6IlN1cGVyQWRtaW4iLCJuYmYiOjE3MjM2NDkwNzcsImV4cCI6MTcyMzY1OTg3NywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdCJ9.
+
+
+SIGNATURE
+A assinatura do token (signature) é composta pela codificação do header e do payload somada a uma chave secreta e é gerada pelo algoritmo especificado no cabeçalho.
+
+HS256SHA256(
+    base64UrlEncode(header) + "." + base64UrlEncode(payload), secret_key)
+
+euEdm6gJ7s_D36HLYvBgB5PahVoqhFQDB9hB7SKO6Kg
+
+
+
+O resultado são três strings separadas por pontos que podem ser facilmente utilizadas em ambientes HTML e protocolos HTTP.
+
