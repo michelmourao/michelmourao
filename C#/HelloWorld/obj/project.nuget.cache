@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "ogWx6D69Hfg=",
+=======
+  "dgSpecHash": "hWSJO1fbxfI=",
+>>>>>>> 0fd34cf9002867b33d758208db2d8dc231d600b9
   "success": true,
   "projectFilePath": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/HelloWorld.csproj",
   "expectedPackageFiles": [],
@@ -9,7 +13,11 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problema ao ler o arquivo de cache /Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/obj/project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problem reading the cache file C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 0fd34cf9002867b33d758208db2d8dc231d600b9
     }
   ]
 }
