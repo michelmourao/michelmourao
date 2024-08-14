@@ -8,36 +8,25 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\michel.mourao\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/michelmourao/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\HelloWorld.csproj",
+      "projectUniqueName": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/HelloWorld.csproj",
       "projectName": "HelloWorld",
-      "projectPath": "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\HelloWorld.csproj",
-      "packagesPath": "C:\\Users\\michel.mourao\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\obj\\",
+      "projectPath": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/HelloWorld.csproj",
+      "packagesPath": "/Users/michelmourao/.nuget/packages/",
+      "outputPath": "/Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\michel.mourao\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/michelmourao/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-<<<<<<< HEAD
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-=======
         "/usr/local/share/dotnet/library-packs": {},
->>>>>>> 073467e9a490561cc5c7b769001f1d9157728e91
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -76,8 +65,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache /Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/obj/project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
