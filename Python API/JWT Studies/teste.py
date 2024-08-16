@@ -1,14 +1,15 @@
 import jwt
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
-SECRET_KEY = "mysecretkey"
+SECRET_KEY = "9uf309d039ue09u"
 ALGORITHM = "HS256"
 
 def create_jwt_token(username: str):
     payload = {
         "sub": username,
+        "extra": 'Other useful information',
         "iat": datetime.now(tz=timezone.utc),
-        "exp": datetime.utcnow() + timedelta(minutes=15)
+        "exp": datetime.now(tz=timezone.utc) + timedelta(minutes=30) #or hours, days
     }
     token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
     return token
@@ -30,4 +31,13 @@ print(f"Token JWT Gerado: {token}")
 # Validar o token
 payload = validate_jwt_token(token)
 print(f"Payload Decodificado: {payload}")
-input()
+
+sub = payload.get('sub')
+iat = payload.get('iat')
+exp = payload.get('exp')
+
+seconds = exp - iat
+minutes = seconds / 60
+print(minutes)
+
+#input()

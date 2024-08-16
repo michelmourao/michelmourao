@@ -26,12 +26,7 @@
         "net8.0"
       ],
       "sources": {
-<<<<<<< HEAD
         "/usr/local/share/dotnet/library-packs": {},
-=======
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
->>>>>>> 0fd34cf9002867b33d758208db2d8dc231d600b9
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -79,11 +74,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
       "message": "Problema ao ler o arquivo de cache /Users/michelmourao/Desktop/DEV/michelmourao/C#/HelloWorld/obj/project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "Problem reading the cache file C:\\Users\\michel.mourao\\Desktop\\DEV\\michelmourao\\C#\\HelloWorld\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> 0fd34cf9002867b33d758208db2d8dc231d600b9
     }
   ]
 }
