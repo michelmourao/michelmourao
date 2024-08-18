@@ -1,0 +1,1 @@
+#arquivo principal que cria a instância do FastAPI e inclui os roteadores.

@@ -1,10 +1,20 @@
-from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi import FastAPI, Depends, HTTPException, status, Form
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from datetime import datetime, timedelta, timezone
 import jwt
 
 # Crie uma instância do FastAPI
-app = FastAPI()
+app = FastAPI(
+    title="My study API",
+    description="For authenticate remember to send the credentials on request body.",
+    version="1.0.1",
+    openapi_tags=[{"name": "auth", "description": "Authentication endpoints"}],
+    swagger_ui_oauth2_redirect_url="/docs/oauth2-redirect",
+    swagger_ui_init_oauth={
+        "clientId": "your-client-id",
+        "clientSecret": "your-client-secret",
+    },
+ )
 
 # Defina uma chave secreta (deve ser mantida em segredo)
 SECRET_KEY = "secret-key"
@@ -24,8 +34,16 @@ def create_access_token(data: dict):
 # Rota para geração de token
 @app.post("/token")
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+
     # Aqui você faria a verificação do usuário, etc.
-    user_dict = {"sub": form_data.username}
+    user_dict = {"sub": form_data.username} 
+    print(f'Username: {form_data.username}, Pwd: {form_data.password}, Cid: {form_data.client_id}, Csecret: {form_data.client_secret}')
+    
+    if not form_data.client_id or not form_data.client_secret:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Client ID and Client Secret must not be empty",
+        )
     access_token = create_access_token(data=user_dict)
     return {"access_token": access_token, "token_type": "bearer"}
 
