@@ -1,1 +1,0 @@
-#Configuração de sessões de banco de dados.
