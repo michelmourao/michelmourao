@@ -1,0 +1,2 @@
+sqlalchemy
+psycopg2 or psycopg2-binary
