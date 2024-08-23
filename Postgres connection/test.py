@@ -1,7 +1,8 @@
-from sqlalchemy import create_engine, MetaData, Table, select, text, Column, Integer, String
+from sqlalchemy import create_engine, MetaData, Table, select, text, Column, Integer, String, DateTime
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-
+#from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
+import datetime
 import json
 
 # Substitua pelos detalhes da sua conexão
@@ -21,34 +22,75 @@ session = Session()
 Base = declarative_base()
 
 # Definindo o modelo da tabela
+# class User(Base):
+#     __tablename__ = 'users'
+#     id = Column(Integer, primary_key=True)
+#     username = Column(String)
+#     email = Column(String)
+#     created_at = Column(String)
+
+# Definindo o modelo da tabela
 class User(Base):
     __tablename__ = 'users'
-    id = Column(Integer, primary_key=True)
-    username = Column(String)
-    email = Column(String)
-    created_at = Column(String)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    username = Column(String, nullable=False)
+    email = Column(String, nullable=False)
+    created_at = Column(DateTime, default=datetime.datetime.now)  # Usando datetime sem timezone
 
-# Realizando a consulta
+def new_user():
+    # Criando um novo usuário
+    new_user = User(username="mike", email="mike@exemplo.com")
+
+    # Adicionando e confirmando (commit) a transação
+    session.add(new_user)
+    session.commit()
+
+    return
+
+new_user()
+
+def delete_user():
+    # Consultar o usuário que deseja deletar (por exemplo, pelo 'username')
+    user_to_delete = session.query(User).filter_by(username="Mikee").first()
+
+    # Verificar se o usuário existe
+    if user_to_delete:
+        # Deletar o usuário
+        session.delete(user_to_delete)
+        session.commit()  # Confirma a exclusão no banco de dados
+        print(f"Usuário '{user_to_delete.username}' deletado com sucesso.")
+    else:
+        print("Usuário não encontrado.")
+
+    return
+
+#delete_user()
+
 users = session.query(User).all()
+for user in users:
+    print(f"ID: {user.id}, Username: {user.username}, Email: {user.email}, Created At: {user.created_at}")
 
-# Convertendo para lista de dicionários
-users_list = [
-    {
-        'id': user.id,
-        'username': user.username,
-        'email': user.email,
-        'created_at': user.created_at
-    }
-    for user in users
-]
 
-# Convertendo para JSON
-users_json = json.dumps(users_list, ensure_ascii=False, default=str)
+def consult_json():
 
-print(users_json)
+    # Realizando a consulta
+    users = session.query(User).all()
 
-# Fechar a sessão
-session.close()
+    # Convertendo para lista de dicionários
+    users_list = [
+        {
+            'id': user.id,
+            'username': user.username,
+            'email': user.email,
+            'created_at': user.created_at
+        }
+        for user in users
+    ]
+
+    # Convertendo para JSON
+    users_json = json.dumps(users_list, ensure_ascii=False, default=str)
+    print(users_json)
+    return
 
 def orm_consult(users_table):
     print('ORM consult')
@@ -90,11 +132,7 @@ def query_consult(users_table):
 
     return
 
-# Refletindo a tabela 'users'
-# users_table = Table('users', metadata, autoload_with=engine)
 
-# orm_consult(users_table)
-# query_consult(users_table)
 
-# Fechando a conexão
-# connection.close()
+# Fechar a sessão
+session.close()
