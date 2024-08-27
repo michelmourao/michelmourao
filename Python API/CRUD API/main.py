@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.endpoints import endpoints, users
 from app.auth import router as auth_router
-from datetime import datetime
+from datetime import datetime, timezone
 
 app = FastAPI()
 

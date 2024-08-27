@@ -1,15 +1,26 @@
 from sqlalchemy import select, text, Column, Integer, String, DateTime
-import datetime
+from datetime import datetime
 from app.database import Base
+from pydantic import BaseModel
 
-# Definindo o modelo da tabela
+# Definindo o modelo da tabela no BD
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, autoincrement=True)
     username = Column(String, nullable=False)
     email = Column(String, nullable=False)
-    created_at = Column(DateTime, default=datetime.datetime.now)  # Usando datetime sem timezone
+    created_at = Column(DateTime, default=datetime.now)  # Usando datetime sem timezone
     password_hash = Column(String, nullable=False)
+
+# Definindo o modelo que retornará consulta de usuários na API
+class UserResponse(BaseModel):
+    id: int
+    username: str
+    email: str
+    created_at: datetime
+
+    class Config:
+        orm_mode = True #Informa o pydantic de que os dados são retorno de BD e facilita a conversão direta para .json
 
 class UserCRUD:
     def __init__(self, session):

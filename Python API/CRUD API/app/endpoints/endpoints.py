@@ -15,9 +15,9 @@ def read_protected_data(token: str = Depends(oauth2_scheme)):
     )
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username = payload.get("sub")
-        if username is None:
+        user_name = payload.get("sub")
+        if user_name is None:
             raise credentials_exception
     except JWTError:
         raise credentials_exception
-    return {"message": f"Hello, {username}!"}
+    return {"message": f"Hello, {user_name}!"}
