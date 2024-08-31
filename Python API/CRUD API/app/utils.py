@@ -26,3 +26,16 @@ def verify_password(plain_password, hashed_password):
 def get_password_hash(password):
     return pwd_context.hash(password)
 
+# Função para verificar o token
+def token_verification(token):
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_name = payload.get("sub")
+
+        if user_name is None:
+            return None
+        
+        return user_name
+    
+    except:
+        return None

@@ -2,12 +2,17 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from jose import JWTError, jwt
 from app.auth import oauth2_scheme
 from app.utils import SECRET_KEY, ALGORITHM
+from datetime import datetime, timezone
 
 router = APIRouter()
 
-# Rota protegida
-@router.get("/protected")
-def read_protected_data(token: str = Depends(oauth2_scheme)):
+@router.get("/datetime")
+def get_datetime():
+    dt = datetime.now()
+    return dt
+
+@router.get("/hello")
+def hello_user(token: str = Depends(oauth2_scheme)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",
