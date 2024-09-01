@@ -2,6 +2,7 @@
 #http://localhost:8000/redoc
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.endpoints import endpoints, users
 from app.auth import router as auth_router
 
@@ -11,7 +12,18 @@ app = FastAPI(
     version="1.0.0"
 )
 
-#app.include_router(auth_router)
+app = FastAPI()
+
+# Configurando o CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite qualquer origem. Substitua "*" por uma lista de domínios permitidos em produção.
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos os métodos HTTP (GET, POST, etc.)
+    allow_headers=["*"],  # Permite todos os cabeçalhos
+)
+
+
 app.include_router(auth_router, tags=["Authentication"])
 app.include_router(endpoints.router, prefix="/test", tags=["Test"])
 app.include_router(users.router, prefix="/users", tags=["Users"])

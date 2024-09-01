@@ -22,7 +22,7 @@ class UserResponse(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True #Informa o pydantic de que os dados são retorno de BD e facilita a conversão direta para .json
+        from_attributes = True #Informa o pydantic de que os dados são retorno de BD e facilita a conversão direta para .json
 
 # Definindo o modelo que receberá o json de criação de usuários
 class UserCreate(BaseModel):
