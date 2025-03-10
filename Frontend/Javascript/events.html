@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Texto</title>
+    <script>
+        function changeText() {
+            let textoDigitado = document.getElementById('enter').value; // Pega o valor do input
+            document.getElementById('result').innerHTML = textoDigitado; // Exibe o valor no parágrafo
+        }
+        function changeColor(color){
+            document.getElementById('result').style.color = color;
+        }
+
+        function clearText(){
+            document.getElementById('result').innerHTML = 'The text will appear here...'
+        }
+
+        function counter(){
+            let time = document.getElementById('enter_counter').value
+
+            while (time > 0){
+                document.getElementById('result_counter').innerHTML = time
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Type something and see:</h1>
+    <input type="text" id="enter" placeholder="Type here...">
+    <button onclick="changeText()">Update Text</button>
+    <button onclick="clearText()">Clear Text</button>
+
+    <p id="result">The text will appear here...</p>
+
+    <button onclick="changeColor('red')">Red</button>
+    <button onclick="changeColor('blue')">Blue</button>
+    <button onclick="changeColor('green')">Green</button>
+
+    <h1>Counter</h1>
+    <input type="text" id="enter_counter" placeholder="Type here...">
+    <button onclick="counter()">Start timer</button>
+
+    <p id="result_counter">The text will appear here...</p>
+    
+</body>
+</html>

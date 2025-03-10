@@ -15,40 +15,21 @@ import {
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 import { cilLockLocked, cilUser } from '@coreui/icons';
+import { useAuth } from '../../../context/AuthContext'; // Ajuste o caminho conforme necessário
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const { login } = useAuth(); // Pegue a função de login do contexto
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:8000/token', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          grant_type: 'password',
-          username: username,
-          password: password,
-          client_id: 'string',  // Substitua com o client_id correto
-          client_secret: 'string'  // Substitua com o client_secret correto
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Login failed');
-      }
-
-      const data = await response.json();
-      localStorage.setItem('token', data.access_token); // Armazene o token como necessário
-      navigate('/index.html'); // Redirecionar para a página inicial ou onde for apropriado
-    } catch (error) {
-      setError('Login failed. Please check your credentials and try again.');
+      await login(username, password);
+      navigate('/dashboard'); // Redireciona para o dashboard após o login
+    } catch (err) {
+      setError('Invalid username or password');
     }
   };
 
@@ -60,9 +41,15 @@ const Login = () => {
             <CCardGroup>
               <CCard className="p-4">
                 <CCardBody>
-                  <CForm onSubmit={handleSubmit}>
+                  <CForm
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      handleLogin();
+                    }}
+                  >
                     <h1>Login</h1>
                     <p className="text-body-secondary">Sign In to your account</p>
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
@@ -86,7 +73,6 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                       />
                     </CInputGroup>
-                    {error && <p className="text-danger">{error}</p>}
                     <CRow>
                       <CCol xs={6}>
                         <CButton type="submit" color="primary" className="px-4">
@@ -107,8 +93,7 @@ const Login = () => {
                   <div>
                     <h2>Sign up</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua.
+                      If you're new here, please click the button below to create an account.
                     </p>
                     <Link to="/register">
                       <CButton color="primary" className="mt-3" active tabIndex={-1}>

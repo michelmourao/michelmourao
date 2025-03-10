@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de CSS Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 3fr 2fr 1fr 1fr; /* Três colunas de tamanhos iguais */
+            grid-template-rows: auto; /* Altura das linhas será automática */
+            gap: 10px; /* Espaço entre os itens */
+            padding: 10px;
+            background-color: lightgray;
+        }
+
+        .grid-item {
+            background-color: lightblue;
+            border: 2px solid blue;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* Layout Responsivo */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr; /* Duas colunas em telas menores */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de CSS Grid</h1>
+    <div class="grid-container">
+        <div class="grid-item">Item 1</div>
+        <div class="grid-item">Item 2</div>
+        <div class="grid-item">Item 3</div>
+        <div class="grid-item">Item 4</div>
+        <div class="grid-item">Item 5</div>
+        <div class="grid-item">Item 6</div>
+    </div>
+</body>
+</html>

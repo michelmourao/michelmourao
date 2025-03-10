@@ -1,8 +1,16 @@
-import React from 'react'
+import ProtectedRoute from './ProtectedRoute'
+import React, { Suspense } from 'react'
 
+import Loader from './components/Loader' // Importa o Loader
+import DefaultLayout from './layout/DefaultLayout'
+
+
+// Importar views
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
 const Typography = React.lazy(() => import('./views/theme/typography/Typography'))
+const Login = React.lazy(() => import('./views/pages/login/Login')) // Importar tela de login
+const Register = React.lazy(() => import('./views/pages/register/Register'))
 
 // Base
 const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
@@ -53,8 +61,35 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
-  { path: '/dashboard', name: 'Dashboard', element: Dashboard },
-  { path: '/theme', name: 'Theme', element: Colors, exact: true },
+
+  // Protected Routes
+  // {
+  //   path: '/dashboard',
+  //   name: 'Dashboard',
+  //   element: (
+  //   <ProtectedRoute>
+  //     <Dashboard />
+  //   </ProtectedRoute>
+  //   ),
+  // },
+
+  // Public route
+  { path: '/login', name: 'Login', element: <Suspense fallback={<Loader />}><Login /></Suspense> },
+  { path: '/register', name: 'Register', element: <Suspense fallback={<Loader />}><Register /></Suspense> },
+  { path: '/tables', name: 'Theme', element: <Suspense fallback={<Loader />}><Tables /></Suspense> },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    element: (
+      <ProtectedRoute>
+        <DefaultLayout>
+          <Suspense fallback={<Loader />}><Dashboard /></Suspense>
+        </DefaultLayout>
+      </ProtectedRoute>
+    ),
+  },
+
+  //{ path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },
   { path: '/base', name: 'Base', element: Cards, exact: true },
@@ -71,7 +106,7 @@ const routes = [
   { path: '/base/progress', name: 'Progress', element: Progress },
   { path: '/base/spinners', name: 'Spinners', element: Spinners },
   { path: '/base/tabs', name: 'Tabs', element: Tabs },
-  { path: '/base/tables', name: 'Tables', element: Tables },
+  //{ path: '/tables', name: 'Tables', element: Tables },
   { path: '/base/tooltips', name: 'Tooltips', element: Tooltips },
   { path: '/buttons', name: 'Buttons', element: Buttons, exact: true },
   { path: '/buttons/buttons', name: 'Buttons', element: Buttons },

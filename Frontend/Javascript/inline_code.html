@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de JavaScript</title>
+    <script>
+        function mostrarMensagem() {
+            alert('Você clicou no botão!');
+        }
+
+        function mudarTexto() {
+            document.getElementById('mensagem').innerHTML = 'Texto Alterado!';
+        }
+    </script>
+</head>
+<body>
+    <h1>JavaScript Básico</h1>
+    <button onclick="mostrarMensagem()">Clique Aqui</button>
+
+    <h1>Interação com JavaScript</h1>
+    <p id="mensagem">Este texto será alterado</p>
+    <button onclick="mudarTexto()">Alterar Texto</button>
+</body>
+</html>
