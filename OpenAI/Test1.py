@@ -2,9 +2,6 @@
 # pip install openai
 # https://platform.openai.com/docs/overview
 
-#Mac/Linux: export OPENAI_API_KEY="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"
-#Windows: setx OPENAI_API_KEY "your_api_key_here"
-
 from openai import OpenAI
 
 from rich.markdown import Markdown

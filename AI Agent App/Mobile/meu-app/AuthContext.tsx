@@ -19,19 +19,25 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   //const navigation = useNavigation();
 
   // Verifica se o usuário está logado ao iniciar o app
+  const checkLogin = async () => {
+    const token = await AsyncStorage.getItem("userToken");
+    setIsLoggedIn(!!token); // Define isLoggedIn como true se o token existir
+    console.log("Checando se existe token na memória: ", {token});
+    console.log({isLoggedIn});
+
+    // *** IMPLEMENTAR ENDPOINT PARA VALIDAR SE O TOKEN NÃO EXPIROU ***
+
+    // if (!!token){
+    //   navigation.navigate("Home")
+    // }
+  };
+
+  // function check2(){
+  //   checkLogin();
+  // }
+  // useEffect(check2, []);
+
   useEffect(() => {
-    const checkLogin = async () => {
-      const token = await AsyncStorage.getItem("userToken");
-      setIsLoggedIn(!!token); // Define isLoggedIn como true se o token existir
-      console.log("Checando se existe token na memória: ", {token});
-      console.log({isLoggedIn});
-
-      // *** IMPLEMENTAR ENDPOINT PARA VALIDAR SE O TOKEN NÃO EXPIROU ***
-
-      // if (!!token){
-      //   navigation.navigate("Home")
-      // }
-    };
     checkLogin();
   }, []);
 
@@ -49,7 +55,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }).toString();
   
       // Faz a requisição com o método POST
-      const response = await fetch("http://192.168.15.94:8000/token", {  // Substitua com o IP do seu MacBook
+      const response = await fetch("http://192.168.15.93:8000/token", {  // Substitua com o IP do seu MacBook
         method: 'POST',
         headers: {
           'Accept': 'application/json',
