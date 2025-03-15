@@ -3,7 +3,7 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.endpoints import endpoints, users, systemprompts
+from app.endpoints import endpoints, users, systemprompts, chatsessions
 from app.auth import router as auth_router
 
 app = FastAPI(
@@ -28,4 +28,5 @@ app.include_router(auth_router, tags=["Authentication"])
 app.include_router(endpoints.router, prefix="/test", tags=["Test"])
 app.include_router(users.router, prefix="/users", tags=["Users"])
 app.include_router(systemprompts.router, prefix="/systemprompts", tags=["System Prompts"])
+app.include_router(chatsessions.router, prefix="/ChatSession", tags=["Chat Session"])
 #app.include_router(items.router, prefix="/items", tags=["items"])

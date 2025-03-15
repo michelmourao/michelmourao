@@ -1,13 +1,32 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { AuthContext } from "../AuthContext";
 
 export default function Config() {
+  const navigation = useNavigation();
+  const { logout } = useContext(AuthContext);
+
+  const handleLogout = async () => {
+    await logout();
+    navigation.replace("Login")
+  };
 
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Página de configuração</Text>
-      <Text>Em construção</Text>
+      <Text>*** Em construção ***</Text>
+      <Text></Text>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity 
+            style={styles.button} 
+            onPress={handleLogout}
+            activeOpacity={0.7}
+        >
+            <Text style={styles.buttonText}>Sair</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -30,7 +49,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   button: {
-    backgroundColor: "#007bff",
+    backgroundColor: "#4682B4",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,

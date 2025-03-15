@@ -1,17 +1,12 @@
 import React, { useContext } from "react";
 import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { AuthContext } from "../AuthContext"; // Importe o AuthContext
+import { AuthContext } from "../AuthContext";
 import { useNavigation } from "@react-navigation/native";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
   const { isLoggedIn, logout } = useContext(AuthContext);
-
-  const handleLogout = async () => {
-    await logout();
-    navigation.replace("Login")
-  };
 
   function checkLogin(){
     console.log({isLoggedIn});
@@ -20,15 +15,6 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Bem-vindo à Home!</Text>
-        <View style={styles.buttonContainer}>
-            <TouchableOpacity 
-                style={styles.button} 
-                onPress={handleLogout}
-                activeOpacity={0.7}
-            >
-                <Text style={styles.buttonText}>Sair</Text>
-            </TouchableOpacity>
-          </View>
     </View>
   );
 }
@@ -51,7 +37,7 @@ const styles = StyleSheet.create({
       gap: 10,
     },
     button: {
-      backgroundColor: "#007bff",
+      backgroundColor: "#4682B4",
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 8,

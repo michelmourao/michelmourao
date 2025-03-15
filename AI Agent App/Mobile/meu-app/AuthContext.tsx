@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }).toString();
   
       // Faz a requisição com o método POST
-      const response = await fetch("http://192.168.15.93:8000/token", {  // Substitua com o IP do seu MacBook
+      const response = await fetch("http://192.168.15.94:8000/token", {  // Substitua com o IP do seu MacBook
         method: 'POST',
         headers: {
           'Accept': 'application/json',

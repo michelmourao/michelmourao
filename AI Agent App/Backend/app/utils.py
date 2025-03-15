@@ -30,13 +30,28 @@ def get_password_hash(password):
 def token_verification(token):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        sub = payload.get("sub")
-        print(f"Token verification log: {sub}")
+        email = payload.get("email")
+        print(f"Token verification log - Email: {email}")
 
-        if sub is None:
+        if email is None:
             return None
         
-        return sub
+        return email
+    
+    except:
+        return None
+
+# Função para extrair o user_id do token - Como tinha muito código implementado retornando apenas o email na token_verification. Resolvi não alterar para uma tupla.
+def collect_id(token):
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_id = payload.get("user_id")
+        print(f"Token verification log - Id: {user_id}")
+
+        if user_id is None:
+            return None
+        
+        return user_id
     
     except:
         return None

@@ -1,9 +1,10 @@
-from sqlalchemy import select, text, Column, Integer, String, DateTime
+from sqlalchemy import select, text, Column, Integer, String, DateTime, Text, JSON, func
 from datetime import datetime
 from app.database import Base
 from pydantic import BaseModel, EmailStr
 from app.utils import get_password_hash
 from typing import Optional
+from typing import List
 
 class UserModel:
         
@@ -149,6 +150,68 @@ class AgentModel:
             prompt_to_delete = self.session.query(AgentModel.Prompts).filter_by(id=prompt_id).first()
             if prompt_to_delete:
                 self.session.delete(prompt_to_delete)
+                self.session.commit()
+                return True
+            return False
+    
+    ########### CHAT SESSION ###########
+
+    class ChatSession(Base):
+        __tablename__ = "chatsessions"
+
+        id = Column(Integer, primary_key=True, index=True)
+        session_id = Column(String, unique=True, index=True)
+        history = Column(JSON, nullable=False)
+        user_id = Column(Integer, nullable=False)
+        updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
+
+    class ChatSessionResponse(BaseModel):
+        session_id: str
+        history: List
+
+        class Config:
+            from_attributes = True #Informa o pydantic de que os dados são retorno de BD e facilita a conversão direta para .json
+
+    class Message(BaseModel):
+        content: str
+        role: str  # "system", "user", "assistant"
+
+    class ChatSessionUpdate(BaseModel):
+        session_id: str
+        history: List
+    
+    class ChatSessionCRUD:
+        def __init__(self, session):
+            self.session = session
+
+        def create_chatsession(self, user_id, session_id, history):
+            """Cria um novo chat."""
+            new_chat = AgentModel.ChatSession(user_id=user_id, session_id=session_id, history=history)
+            self.session.add(new_chat)
+            self.session.commit()
+            return new_chat
+
+        def read_chatsession(self, user_id=None, session_id=None):
+            """Lê um chat específico com base no ID."""
+            if user_id:
+                return self.session.query(AgentModel.ChatSession).filter_by(user_id=user_id).first()
+            elif session_id:
+                return self.session.query(AgentModel.ChatSession).filter_by(session_id=session_id).first()
+
+        def update_chatsession(self, session_id, new_history):
+            """Atualiza as informações de um chat específico."""
+            chat_to_update = self.session.query(AgentModel.ChatSession).filter_by(session_id=session_id).first()
+            if chat_to_update:
+                chat_to_update.history = new_history
+                self.session.commit()
+                return chat_to_update
+            return None
+
+        def delete_chatsession(self, session_id):
+            """Deleta um chat específico."""
+            chat_to_delete = self.session.query(AgentModel.ChatSession).filter_by(session_id=session_id).first()
+            if chat_to_delete:
+                self.session.delete(chat_to_delete)
                 self.session.commit()
                 return True
             return False

@@ -40,28 +40,18 @@ async def get_user_endpoint(user_id: int, token: str = Depends(oauth2_scheme)):
 async def read_users(user = Depends(get_user_endpoint)):
     return user
 
-
 @router.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 
-async def create_user(user: UserCreate = Body(...), token: str = Depends(oauth2_scheme)):
+async def create_user(user: UserCreate = Body(...)):
 
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-
-    #verifica o token
-    sub = token_verification(token) #subscriber
-    if sub is None:
-        raise credentials_exception
-    
     # Verifica se email está em uso
     existing_user = UserCRUD(session).read_user(email=user.email)
     if existing_user:
         session.close()
         raise HTTPException(status_code=400, detail="Email already registered")
     
+    #Checar token recebido por e-mail
+
     new_user = UserCRUD(session).create_user(email=user.email, name=user.name, plan=user.plan, pswd=user.pswd,)
     
     user_data = {
@@ -163,3 +153,9 @@ async def update_user(user: UserUpdate = Body(...), token: str = Depends(oauth2_
             user_crud.update_user(user_id=user.id, new_plan=user.plan)
 
     return user
+
+@router.put("/emailverification", status_code=status.HTTP_204_NO_CONTENT)
+async def verify_email():
+    #Cria codigo no banco
+    #envia email
+    pass

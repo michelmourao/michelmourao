@@ -1,10 +1,8 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { ActivityIndicator, View } from "react-native";
-import { AuthProvider } from "./AuthContext"; // Importe o AuthProvider
+import { AuthProvider } from "./AuthContext";
 import LoginScreen from "./screens/LoginScreen";
-import HomeScreen from "./screens/HomeScreen";
 import TabNavigator from "./TabNavigator";
 
 const Stack = createStackNavigator();
