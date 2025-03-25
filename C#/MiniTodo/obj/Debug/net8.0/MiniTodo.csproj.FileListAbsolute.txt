@@ -1,7 +1,0 @@
-/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/obj/Debug/net8.0/MiniTodo.csproj.AssemblyReference.cache
-/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/obj/Debug/net8.0/MiniTodo.GeneratedMSBuildEditorConfig.editorconfig
-/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/obj/Debug/net8.0/MiniTodo.AssemblyInfoInputs.cache
-/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/obj/Debug/net8.0/MiniTodo.AssemblyInfo.cs
-/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/obj/Debug/net8.0/MiniTodo.csproj.CoreCompileInputs.cache
-/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/obj/Debug/net8.0/MiniTodo.MvcApplicationPartsAssemblyInfo.cache
-/Users/michelmourao/Desktop/DEV/michelmourao/C#/MiniTodo/obj/Debug/net8.0/MiniTodo.sourcelink.json

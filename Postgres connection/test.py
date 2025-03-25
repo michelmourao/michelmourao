@@ -6,7 +6,7 @@ import datetime
 import json
 
 # Substitua pelos detalhes da sua conexão
-DATABASE_URL = "postgresql+psycopg2://michelmourao:12345678@localhost:5432/michelmourao"
+DATABASE_URL = "postgresql+psycopg2://michelmourao:PSWD@localhost:5432/michelmourao"
 
 # Criando a engine de conexão
 engine = create_engine(DATABASE_URL)

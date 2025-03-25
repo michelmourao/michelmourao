@@ -1,2 +1,0 @@
-dotnet new web -o MiniTodo   //Template limpo, quase vazio. Poderia ter usado "new mvc" para um modelo mais completo.
-

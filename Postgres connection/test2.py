@@ -5,7 +5,7 @@ from datetime import datetime
 conn_params = {
     "dbname": "michelmourao",
     "user": "michelmourao",
-    "password": "12345678",
+    "password": "PSWD",
     "host": "localhost",  # ou o endereço do servidor PostgreSQL
     "port": "5432"  # porta padrão do PostgreSQL
 }

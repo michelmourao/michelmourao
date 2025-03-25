@@ -44,7 +44,7 @@ class EventHandler(AssistantEventHandler):
 with client.beta.threads.runs.stream(
   thread_id=thread.id,
   assistant_id=assistant.id,
-  instructions="Estou testando o streaming da api, me passe dois paragramos de qualquer coisa na resposta",
+  instructions="Estou testando o streaming da api, me passe dois paragrafos de qualquer coisa na resposta",
   event_handler=EventHandler(),
 ) as stream:
   stream.until_done()
